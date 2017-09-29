@@ -1,0 +1,32 @@
+AllCops:
+  TargetRubyVersion: 2.4
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 120
+
+# Offense count: 1
+Rails/FilePath:
+  Exclude:
+    - 'config/environments/development.rb'
+
+# Offense count: 1
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: nested, compact
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/test_helper.rb'
+
+Style/Documentation:
+  Enabled: false
+
+# Offense count: 37
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SupportedStyles.
+# SupportedStyles: when_needed, always, never
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+StringLiterals:
+  EnforcedStyle: double_quotes
