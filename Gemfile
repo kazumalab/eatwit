@@ -13,13 +13,18 @@ gem "sass-rails", "~> 5.0"
 gem "sqlite3"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+gem "haml-rails"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "capybara", "~> 2.13"
+  gem "selenium-webdriver"
+end
+
+group :test do
   gem "rspec-rails"
   gem "rubocop", require: false
-  gem "selenium-webdriver"
+  gem "haml-lint", require: false
 end
 
 group :development do
