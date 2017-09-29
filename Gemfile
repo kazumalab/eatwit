@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "coffee-rails", "~> 4.2"
+gem "haml-rails"
 gem "jbuilder", "~> 2.5"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.4"
@@ -13,7 +14,6 @@ gem "sass-rails", "~> 5.0"
 gem "sqlite3"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem "haml-rails"
 
 group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
@@ -22,9 +22,9 @@ group :development, :test do
 end
 
 group :test do
+  gem "haml-lint", require: false
   gem "rspec-rails"
   gem "rubocop", require: false
-  gem "haml-lint", require: false
 end
 
 group :development do
@@ -35,3 +35,4 @@ group :development do
 end
 
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
+

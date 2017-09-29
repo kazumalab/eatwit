@@ -9,3 +9,4 @@ Dir.chdir(VENDOR_PATH) do
     exit 1
   end
 end
+
