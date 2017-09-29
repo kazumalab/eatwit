@@ -30,3 +30,6 @@ Style/FrozenStringLiteralComment:
 
 StringLiterals:
   EnforcedStyle: double_quotes
+
+TrailingBlankLines:
+  EnforcedStyle: final_blank_line

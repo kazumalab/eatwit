@@ -1,0 +1,13 @@
+box: ruby
+build:
+  steps:
+    - bundle-install
+    - script:
+      name: rspec
+      code: bundle exec rspec
+    - script:
+      name: haml-lint
+      code: bundle exec haml-lint
+    - script:
+      name: rubocop
+      code: bundle exec rubocop
