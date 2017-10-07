@@ -35,5 +35,16 @@ RSpec.describe User do
       it { is_expected.to be_invalid }
     end
   end
+
+  describe "#social_accounts" do
+    let(:user) { create(:user, :with_password) }
+    let(:social_account) { create(:social_account) }
+
+    before do
+      UserSocialAccount.create(user: user, social_account: social_account)
+    end
+
+    it { expect(user.social_accounts).to include social_account }
+  end
 end
 

@@ -25,6 +25,7 @@ end
 group :test do
   gem "factory_girl_rails"
   gem "haml-lint", require: false
+  gem "rails-controller-testing"
   gem "rspec-rails"
   gem "rubocop", require: false
 end
