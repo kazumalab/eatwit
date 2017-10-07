@@ -62,10 +62,31 @@ RSpec.describe User do
     end
   end
 
-  describe "#activate!" do
+  describe "#activate" do
     let(:user) { create(:user, :with_password) }
 
-    it { expect { user.activate! }.to change { AccountActivate.count }.by(1) }
+    context "success" do
+      it { expect { user.activate }.to change { AccountActivate.count }.by(1) }
+    end
+  end
+
+  describe ".find_by_token" do
+    let(:user) { create(:user, :with_password) }
+
+    before do
+      verifier = Rails.application.message_verifier(:registration_user)
+      @token = verifier.generate([user.id, Time.zone.now])
+    end
+
+    context "success" do
+      it { expect(User.find_by_token(@token)).to eq user }
+    end
+
+    context "invalid token" do
+      let(:invalid_token) { @token + "hoge" }
+
+      it { expect(User.find_by_token(invalid_token)).to be nil }
+    end
   end
 end
 
