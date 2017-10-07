@@ -16,7 +16,7 @@ class User < ApplicationRecord
     create_account_activate
   end
 
-  def self.find_by_token(token)
+  def self.find_from_token(token)
     return nil unless token
     verifier = Rails.application.message_verifier(:registration_user)
     return nil unless verifier.valid_message?(token)

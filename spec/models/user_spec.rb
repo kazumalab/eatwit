@@ -70,7 +70,7 @@ RSpec.describe User do
     end
   end
 
-  describe ".find_by_token" do
+  describe ".find_from_token" do
     let(:user) { create(:user, :with_password) }
 
     before do
@@ -79,13 +79,13 @@ RSpec.describe User do
     end
 
     context "success" do
-      it { expect(User.find_by_token(@token)).to eq user }
+      it { expect(User.find_from_token(@token)).to eq user }
     end
 
     context "invalid token" do
       let(:invalid_token) { @token + "hoge" }
 
-      it { expect(User.find_by_token(invalid_token)).to be nil }
+      it { expect(User.find_from_token(invalid_token)).to be nil }
     end
   end
 end
