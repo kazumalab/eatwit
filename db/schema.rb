@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_171_004_145_435) do
+ActiveRecord::Schema.define(version: 20171007135850) do
+
+  create_table "account_activates", force: :cascade do |t|
+    t.datetime "certificated_at", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "social_accounts", force: :cascade do |t|
     t.string "provider", null: false
     t.string "uid", null: false
@@ -35,7 +43,7 @@ ActiveRecord::Schema.define(version: 20_171_004_145_435) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index %w[name email], name: "index_users_on_name_and_email", unique: true
+    t.index ["name", "email"], name: "index_users_on_name_and_email", unique: true
   end
-end
 
+end

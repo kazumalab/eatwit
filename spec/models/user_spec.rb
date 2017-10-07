@@ -46,5 +46,26 @@ RSpec.describe User do
 
     it { expect(user.social_accounts).to include social_account }
   end
+
+  describe "#authenticated?" do
+    subject { user.authenticated? }
+    let(:user) { create(:user, :with_password) }
+
+    context "return true" do
+      before { user.build_account_activate }
+
+      it { is_expected.to be_truthy }
+    end
+
+    context "return false" do
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  describe "#activate!" do
+    let(:user) { create(:user, :with_password) }
+
+    it { expect{ user.activate! }.to change { AccountActivate.count }.by(1) }
+  end
 end
 
