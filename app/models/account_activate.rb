@@ -7,8 +7,8 @@ class AccountActivate < ApplicationRecord
 
   private
 
-    def ensure_certificated_at
-      self.certificated_at = Time.zone.now
-    end
+  def ensure_certificated_at
+    self.certificated_at = Time.zone.now
+  end
 end
 

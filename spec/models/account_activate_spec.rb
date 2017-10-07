@@ -12,3 +12,4 @@ RSpec.describe AccountActivate do
     end
   end
 end
+

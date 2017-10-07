@@ -65,7 +65,7 @@ RSpec.describe User do
   describe "#activate!" do
     let(:user) { create(:user, :with_password) }
 
-    it { expect{ user.activate! }.to change { AccountActivate.count }.by(1) }
+    it { expect { user.activate! }.to change { AccountActivate.count }.by(1) }
   end
 end
 

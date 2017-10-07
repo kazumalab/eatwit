@@ -11,7 +11,7 @@ class User < ApplicationRecord
     return false unless account_activate
     true
   end
-  
+
   def activate!
     create_account_activate!
   end
