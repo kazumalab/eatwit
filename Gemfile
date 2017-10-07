@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "bcrypt"
 gem "coffee-rails", "~> 4.2"
 gem "haml-rails"
 gem "jbuilder", "~> 2.5"
@@ -22,7 +23,9 @@ group :development, :test do
 end
 
 group :test do
+  gem "factory_girl_rails"
   gem "haml-lint", require: false
+  gem "rails-controller-testing"
   gem "rspec-rails"
   gem "rubocop", require: false
 end
