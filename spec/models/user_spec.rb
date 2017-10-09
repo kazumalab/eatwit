@@ -46,5 +46,47 @@ RSpec.describe User do
 
     it { expect(user.social_accounts).to include social_account }
   end
+
+  describe "#authenticated?" do
+    subject { user.authenticated? }
+    let(:user) { create(:user, :with_password) }
+
+    context "return true" do
+      before { user.build_account_activate }
+
+      it { is_expected.to be_truthy }
+    end
+
+    context "return false" do
+      it { is_expected.to be_falsey }
+    end
+  end
+
+  describe "#activate" do
+    let(:user) { create(:user, :with_password) }
+
+    context "success" do
+      it { expect { user.activate }.to change { AccountActivate.count }.by(1) }
+    end
+  end
+
+  describe ".find_from_token" do
+    let(:user) { create(:user, :with_password) }
+
+    before do
+      verifier = Rails.application.message_verifier(:registration_user)
+      @token = verifier.generate([user.id, Time.zone.now])
+    end
+
+    context "success" do
+      it { expect(User.find_from_token(@token)).to eq user }
+    end
+
+    context "invalid token" do
+      let(:invalid_token) { @token + "hoge" }
+
+      it { expect(User.find_from_token(invalid_token)).to be nil }
+    end
+  end
 end
 

@@ -12,6 +12,7 @@ Metrics/LineLength:
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
+    - "db/**/*"
 
 # Offense count: 1
 Rails/FilePath:
