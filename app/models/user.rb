@@ -29,5 +29,9 @@ class User < ApplicationRecord
     verifier = Rails.application.message_verifier(:registration_user)
     verifier.generate([id, Time.zone.now])
   end
+
+  def send_email
+    UserMailer.account_activation(self, verifier_token).deliver_now
+  end
 end
 
