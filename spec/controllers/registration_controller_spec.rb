@@ -10,7 +10,7 @@ RSpec.describe RegistrationController do
     end
 
     it :aggregate_failures do
-      expect(response).to have_http_status 200
+      expect(response).to have_http_status 302
       expect(response).to redirect_to user
     end
   end
