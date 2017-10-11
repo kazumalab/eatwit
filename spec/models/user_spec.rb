@@ -47,8 +47,8 @@ RSpec.describe User do
     it { expect(user.social_accounts).to include social_account }
   end
 
-  describe "#authenticated?" do
-    subject { user.authenticated? }
+  describe "#activate?" do
+    subject { user.activate? }
     let(:user) { create(:user, :with_password) }
 
     context "return true" do
