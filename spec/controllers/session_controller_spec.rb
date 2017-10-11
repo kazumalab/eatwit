@@ -18,3 +18,4 @@ RSpec.describe SessionController do
     end
   end
 end
+

@@ -2,7 +2,6 @@ require "rails_helper"
 
 RSpec.describe ApplicationHelper do
   describe "#current_user" do
-
     context "login" do
       let(:user) { create(:user, :with_password) }
 
@@ -26,3 +25,4 @@ RSpec.describe ApplicationHelper do
     end
   end
 end
+

@@ -1,12 +1,10 @@
 class SessionController < ApplicationController
-
   before_action :set_user, only: :create
 
-  def new
-  end
+  def new; end
 
   def create
-    if !!@user&.authenticate(session_params[:password])
+    if @user&.authenticate(session_params[:password])
       session[:user_id] = @user.id
       redirect_to @user
     else
@@ -20,14 +18,15 @@ class SessionController < ApplicationController
 
   private
 
-    def session_params
-      params.require(:session).permit(
-        :name,
-        :password
-      )
-    end
+  def session_params
+    params.require(:session).permit(
+      :name,
+      :password
+    )
+  end
 
-    def set_user
-      @user = User.find_by(name: session_params[:name])
-    end
+  def set_user
+    @user = User.find_by(name: session_params[:name])
+  end
 end
+

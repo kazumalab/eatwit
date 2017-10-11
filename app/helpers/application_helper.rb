@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def user_signed_in?
-    !!current_user
+    current_user.present?
   end
 
   def login(user)

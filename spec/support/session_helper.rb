@@ -3,3 +3,4 @@ module SessionHelper
     session[:user_id] = user.id
   end
 end
+
