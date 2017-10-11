@@ -10,7 +10,7 @@ RSpec.describe SessionController do
   describe "#create" do
     let(:user) { create(:user, :with_password) }
 
-    before { post :create, params: { session: { email: user.email, password: "abcdef1234" } } }
+    before { post :create, params: { session: { name: user.name, password: "abcdef1234" } } }
 
     it :aggregate_failures do
       expect(response).to have_http_status 302

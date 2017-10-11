@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe ApplicationHelper, type: Helper do
+RSpec.describe ApplicationHelper do
   describe "#current_user" do
 
     context "login" do
@@ -8,11 +8,11 @@ RSpec.describe ApplicationHelper, type: Helper do
 
       before { login(user) }
 
-      it { expect(current_user).to eq user }
+      it { expect(helper.current_user).to eq user }
     end
 
     context "no login" do
-      it { expect(current_user).to be nil }
+      it { expect(helper.current_user).to be nil }
     end
   end
 
@@ -22,7 +22,7 @@ RSpec.describe ApplicationHelper, type: Helper do
 
       before { login(user) }
 
-      it { expect(user_signed_in?).to be_truthy }
+      it { expect(helper.user_signed_in?).to be_truthy }
     end
   end
 end
