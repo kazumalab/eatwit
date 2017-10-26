@@ -1,24 +1,20 @@
-# README
+# What is this app?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+you get lost dinner at the journey.
+this app tell you about delicious lunch and dinner from Follower and Followed of Twitter.
 
-Things you may want to cover:
+# Framework
 
-* Ruby version
+- Ruby 2.4.2
+- Rails 5.1.4
 
-* System dependencies
+# Testing Framework
 
-* Configuration
+- Rspec-Rails 3.1.6
 
-* Database creation
+# Todo
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] Twitter Oauth
+- [ ] Follower, Followed analysis
+- [ ] user make Shop List
+- [ ] Testing User(0/20)
