@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :social_accounts, through: :user_social_accounts, dependent: :destroy
   has_one  :account_activate
 
-  def authenticated?
+  def activate?
     return false unless account_activate
     true
   end
